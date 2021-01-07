@@ -11,9 +11,8 @@ import com.educandoweb.course.spring.jpa.entities.Product;
 
 @Embeddable
 public class OrderItemPK implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
 	
 	@ManyToOne
 	@JoinColumn(name = "order_id")
@@ -22,19 +21,23 @@ public class OrderItemPK implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
-	
+
 	public Order getOrder() {
 		return order;
 	}
+
 	public void setOrder(Order order) {
 		this.order = order;
 	}
+
 	public Product getProduct() {
 		return product;
 	}
+
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -43,6 +46,7 @@ public class OrderItemPK implements Serializable {
 		result = prime * result + ((product == null) ? 0 : product.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -63,5 +67,6 @@ public class OrderItemPK implements Serializable {
 		} else if (!product.equals(other.product))
 			return false;
 		return true;
-	}	
+	}
+
 }
